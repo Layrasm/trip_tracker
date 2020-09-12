@@ -31,7 +31,7 @@ class AddressesController < ApplicationController
   def edit
     @location = Location.find(params[:location_id])
     @address = @location.addresses.find(params[:id])
-
+git 
     render partial: "form"
   end
 

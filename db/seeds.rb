@@ -9,6 +9,10 @@ require "faker"
 
 
 2.times do |i|
+  t = Trip.create(name: Faker::TvShows::RickAndMorty.location)
+  l = Location.create(name: Faker::Address.city)
+  a = Address.create(address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zip: Faker::Address.zip)
 
 end
 
+puts "seeded"

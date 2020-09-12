@@ -3,17 +3,18 @@
 <p> Select a location (or option below) </p>
 <br/>
 
-
-<%=link_to "Add location", new_trip_location_path(@trip)%>
-<br/>
-<%= link_to "View all trips", trips_path(@trip)%>
-<br/>
-<%= link_to "Edit trip", edit_trip_path(@trip)%>
-<br/>
-<%= link_to "Delete trip", @trip, method: :delete%>
-<br/>
 <ol>
   <% @trip.locations.each do |location| %>
     <li><%= link_to location.name, location %></li>
   <% end %>
 </ol>
+<br/>
+<%=link_to "Add location", new_trip_location_path(@trip)%>
+<br/>
+<%= link_to "Back", trips_path(@trip)%>
+<br/>
+<%= link_to "Edit trip", edit_trip_path(@trip)%>
+<br/>
+<%= link_to "Delete trip", @trip, method: :delete%>
+<br/>
+

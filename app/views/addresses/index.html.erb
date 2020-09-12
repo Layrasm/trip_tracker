@@ -1,8 +1,8 @@
 <h1>Addresses#index</h1>
-<%= link_to 'Create a new address', new_address_path%>
+<%= link_to 'Create a new address', location_addresses_path%>
 
-<ol>
+ <ol>
   <% @addresses.each do |address| %>
-    <li><%= link_to address.address, address %></li>
+    <li><%= link_to address_path, address %></li>
   <% end %>
-<ol>
+</ol>

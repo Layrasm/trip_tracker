@@ -1,3 +1,17 @@
 <h1><%= @location.name %></h1>
 <br />
-// this is where we need to link down to each location's address
+
+
+
+
+<br/>
+<%=link_to "Add Address", new_location_address_path(@location)%>
+<br/>
+<%= link_to "Back", trip_locations_path(@location)%>
+<br/>
+<%= link_to "Edit address", edit_location_address_path(@location)%>
+<br/>
+<%= link_to "Delete address", @location, method: :delete%>
+<br/>
+
+# // this is where we need to link down to each location's address

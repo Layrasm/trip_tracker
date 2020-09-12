@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
     #   render :new
     end
   
-  end
+  end 
 
 
 
@@ -53,8 +53,10 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location.destroy
-    redirect_to trip_locations_path
+    # @trip = Trip.find(params[:trip_id])
+    # location = @trip.locations.find(params[:id])
+    location.destroy
+    redirect_to trip_locations_path(@location)
 
   end
 

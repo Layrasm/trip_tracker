@@ -1,2 +1,8 @@
-<h1>Locations#index</h1>
-<p>Find me in app/views/locations/index.html.erb</p>
+<h1>Locations!</h1>
+<%= link_to 'Create Location', new_location_path %>
+
+<ol>
+  <% @locations.each do |location| %>
+    <li><%= link_to location.name, location %></li>
+  <% end %>
+<ol>

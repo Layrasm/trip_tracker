@@ -1,6 +1,6 @@
 <h1><%= @address.id ? 'Edit Address' : 'Create Address' %></h1>
 <hr />
-<%= form_for @address do |f| %>
+<%= form_for [@trip, @address] do |f| %>
   <%= f.label :address %>
   <%= f.text_field :name, required: true, autofocus: true %>
   <%= f.label :city %>

@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
  before_action :set_location, only: [:show, :edit, :update, :destroy]
- before_action :find_trip
+#  before_action :find_trip
 
   def index
-    @trip = Trip.location(params[:trip_id])
-    @locations = Trip.locations
+    @trip = Trip.find(params[:trip_id])
+    @locations = @trip.locations
     # @locations = @location_trip.locations
   end
 
@@ -19,12 +19,20 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = @location_trip.locations.new(location_params)
-  
+
+    @trip = Trip.find(params[:trip_id])
+    @location = @trip.locations.new(location_params)
+    
     if @location.save
       redirect_to trip_locations_path
-    else
+    else 
       render :new
+    # @location = @location_trip.locations.new(location_params)
+  
+    # if @location.save
+    #   redirect_to trip_locations_path
+    # else
+    #   render :new
     end
   
   end
@@ -63,9 +71,9 @@ params.require(:location).permit(:name, :trip_id)
     @location = Location.find(params[:id])
   end
 
-  def find_trip
-    @location_trip = current_user.trips.find(params[:trip_id])
-  end
+  # def find_trip
+  #   @location_trip = current_user.trips.find(params[:trip_id])
+  # end
 
 
 end

@@ -3,14 +3,18 @@ class LocationsController < ApplicationController
  before_action :find_trip
 
   def index
-    @locations = @location_trip.locations
+    @trip = Trip.location(params[:trip_id])
+    @locations = Trip.locations
+    # @locations = @location_trip.locations
   end
 
   def show
   end
 
   def new
-    @location = @location_trip.locations.new
+    @trip = Trip.find(params[:trip_id])
+    @location = @trip.locations.new
+    # @location = @location_trip.locations.new
     render partial: "form" ##form for locations
   end
 
@@ -55,12 +59,12 @@ class LocationsController < ApplicationController
 params.require(:location).permit(:name, :trip_id)
   end
 
-  def set_sub
+  def set_location
     @location = Location.find(params[:id])
   end
 
   def find_trip
-    @location_trip = Trip.find(params[:trip_id])
+    @location_trip = current_user.trips.find(params[:trip_id])
   end
 
 

@@ -61,7 +61,4 @@ class AddressesController < ApplicationController
     params.require(:address).permit(:address, :city, :state, :zip)
   end
 
-  def find_address
-  end
-
 end
